@@ -125,11 +125,13 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/':                    ['permitAll'],
         '/assets/**':           ['permitAll'],
         '/partials/**':         ['permitAll'],
+        '/api/**':              ['permitAll'],
         '/**':                  ['isFullyAuthenticated()']
 ]
 
 grails.plugin.springsecurity.rememberMe.persistent = false
 grails.plugin.springsecurity.rest.login.useJsonCredentials = true
+grails.plugin.springsecurity.rest.login.failureStatusCode = 401
 grails.plugin.springsecurity.rest.token.storage.useGorm = true
 grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName = 'gravitas.auth.AuthenticationToken'
 grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName = 'token'

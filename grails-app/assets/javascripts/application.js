@@ -5,8 +5,9 @@
 //= require angular-bootstrap/ui-bootstrap
 //= require angular-bootstrap/ui-bootstrap-tpls
 //= require gravitas/app
-//= require gravitas/events
+//= require gravitas/home
 //= require gravitas/login
+//= require gravitas/events
 //= require_tree views
 //= require_self
 console.log("gravitas manifest load complete.");

@@ -2,13 +2,18 @@ var gravitasApp = angular.module('gravitasApp', [
     'http-auth-interceptor',
     'ngRoute',
     'ui.bootstrap',
-    'events',
+    'home',
     'login',
+    'events'
 ]);
 
 gravitasApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
+            when('/home', {
+                templateUrl: 'partials/home.html',
+                controller: 'homeController'
+            }).
             when('/myEvents', {
                 templateUrl: 'partials/event-list.html',
                 controller: 'listEventsController'
@@ -22,7 +27,12 @@ gravitasApp.config(['$routeProvider',
                 controller: 'editEventController'
             }).
             otherwise({
-                redirectTo: '/myEvents'
+                redirectTo: function(routeParams, currentPath) {
+                    if(currentPath === '/') {
+                        return '/home'
+                    }
+                    return '/myEvents';
+                }
             });
     }]);
 

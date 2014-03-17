@@ -96,7 +96,7 @@ events.controller('createEventController',
         $scope.cancel = function() {
             console.log('cancel called');
 
-            $location.path("/myEvents")
+            $location.path("/myEvents");
         };
     }
 );

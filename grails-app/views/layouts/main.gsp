@@ -32,13 +32,13 @@
         <div id="login-holder" class="container" style="width: 300px;">
             <div id="login-error" class="alert alert-error">
                 <button type="button" class="close" onclick="$('#login-error').hide();">&times;</button>
-                Username and/or password incorrect.
+                Email address and/or password incorrect.
             </div>
             <div id="loginbox">
                 <div id="login-inner" ng-controller="loginController">
                     <form name="loginForm" role="form" ng-submit="logIn()" autocomplete="off">
                         <div class="form-group">
-                            <label for="username">Username</label>
+                            <label for="username">Email Address</label>
                             <input id="username" class="form-control" type="text" ng-model="authData.username"/>
                         </div>
                         <div class="form-group">
