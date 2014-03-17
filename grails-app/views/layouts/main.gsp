@@ -27,9 +27,6 @@
                     <a href="" ng-click="logOut()">(Log out)</a>
                 </div>
             </div>
-            <div class="row" style="text-align: right;">
-
-            </div>
         </div>
 
         <div id="login-holder" class="container" style="width: 300px;">
