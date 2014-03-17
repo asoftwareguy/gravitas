@@ -10,6 +10,9 @@ login.controller('loginController',
             $http.post('api/login', { username: $scope.authData.username, password: $scope.authData.password }, getAuthenticateHttpConfig).
                 success(function(data) {
                     console.log('authentication token: ' + data.token);
+                    console.log('authentication username: ' + data.username);
+                    $rootScope.isAuthenticated = true;
+                    $rootScope.currentUser = data.username;
                     localStorage["authToken"] = data.token;
                     authService.loginConfirmed({}, function(config) {
                         if(!config.headers["X-Auth-Token"]) {
@@ -28,7 +31,7 @@ login.controller('loginController',
 );
 
 login.controller('logoutController',
-    function ($scope, $http, $location) {
+    function ($rootScope, $scope, $http, $location) {
         console.log('logoutController called');
 
         $scope.logOut = function() {
@@ -37,6 +40,8 @@ login.controller('logoutController',
             $http.post('api/logout', {}, getHttpConfig()).
                 success(function() {
                     console.log('logout success');
+                    $rootScope.isAuthenticated = false;
+                    $rootScope.currentUser = null;
                     localStorage.clear();
                     $location.path("/")
                 }).

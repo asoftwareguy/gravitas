@@ -22,8 +22,8 @@
                 <div class="span6">
                     Welcome to Gravitas - the Grails-based Sign-Up Application
                 </div>
-                <div class="span6" style="text-align: right;" ng-controller="logoutController">
-                    Welcome, username.
+                <div class="span6" style="text-align: right;" ng-controller="logoutController" ng-show="isAuthenticated">
+                    Welcome, {{currentUser}}.
                     <a href="" ng-click="logOut()">(Log out)</a>
                 </div>
             </div>

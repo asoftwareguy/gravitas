@@ -6,8 +6,7 @@ This project is an AngularJS client, Grails REST server based event sign-up appl
 
 ## To Do
 
-- Signup/Register module
-- Make Logout/Login link dynamic
+- Sign up/Register module
 - View My Events
 - View All Upcoming Events
 - Sign up for an event
