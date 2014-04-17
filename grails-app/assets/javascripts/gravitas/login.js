@@ -5,7 +5,7 @@ login.controller('loginController',
         console.log('loginController called');
 
         $scope.logIn = function() {
-            console.log('logIn called')
+            console.log('logIn called');
 
             $http.post('api/login', { username: $scope.authData.username, password: $scope.authData.password }, getAuthenticateHttpConfig).
                 success(function(data) {
@@ -13,7 +13,7 @@ login.controller('loginController',
                     console.log('authentication username: ' + data.username);
                     $rootScope.isAuthenticated = true;
                     $rootScope.currentUser = data.username;
-                    localStorage["authToken"] = data.token;
+                    setLocalToken(data.token);
                     authService.loginConfirmed({}, function(config) {
                         if(!config.headers["X-Auth-Token"]) {
                             console.log('X-Auth-Token not on original request; adding it');
@@ -42,7 +42,7 @@ login.controller('logoutController',
                     console.log('logout success');
                     $rootScope.isAuthenticated = false;
                     $rootScope.currentUser = null;
-                    localStorage.clear();
+                    sessionStorage.clear();
                     $location.path("/")
                 }).
                 error(function(data) {

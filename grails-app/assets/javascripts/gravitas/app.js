@@ -55,7 +55,7 @@ gravitasApp.directive('confirmationNeeded', function () {
 gravitasApp.directive('showLogin', function() {
     return {
         restrict: 'C',
-        link: function(scope, element, attrs) {
+        link: function(scope, element) {
             var login = element.find('#login-holder');
             var loginError = element.find('#login-error');
             var main = element.find('#content');
@@ -90,7 +90,11 @@ gravitasApp.directive('showLogin', function() {
 });
 
 function getLocalToken() {
-   return localStorage["authToken"];
+   return sessionStorage["authToken"];
+}
+
+function setLocalToken(value) {
+    sessionStorage["authToken"] = value;
 }
 
 function getHttpConfig() {
