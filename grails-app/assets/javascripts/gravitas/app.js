@@ -45,7 +45,7 @@ gravitasApp.directive('confirmationNeeded', function () {
             var clickAction = attrs.ngClick;
             element.bind('click', function () {
                 if ( window.confirm(msg) ) {
-                    scope.$eval(clickAction)
+                    scope.$eval(clickAction);
                 }
             });
         }

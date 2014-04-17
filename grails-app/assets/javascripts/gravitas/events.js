@@ -83,9 +83,9 @@ events.controller('createEventController',
                 error(function (data) {
                     console.log('saveEvent error: ' + data);
 
-                    var errors = new Object()
+                    var errors = {};
                     $(data.errors).each( function() {
-                        console.log(this.message)
+                        console.log(this.message);
                         errors[this.field] = this.message;
                     });
                     $scope.errors = errors;

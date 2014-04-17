@@ -7,7 +7,7 @@ home.controller('homeController',
         $scope.goToDashboard = function() {
             console.log('goToDashboard called');
 
-            // TODO: attempt to go to dashbaord
+            // TODO: attempt to go to dashboard
             $location.path("/myEvents")
         };
 
