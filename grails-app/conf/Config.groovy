@@ -99,9 +99,10 @@ environments {
 log4j = {
     // Example of changing the log pattern for the default console appender:
     //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+    appenders {
+        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+    }
+    debug 'com.odobo.grails.plugin.springsecurity.rest'
 
     error 'org.codehaus.groovy.grails.web.servlet',        // controllers
             'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -136,3 +137,4 @@ grails.plugin.springsecurity.rest.token.storage.useGorm = true
 grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName = 'gravitas.auth.AuthenticationToken'
 grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName = 'token'
 grails.plugin.springsecurity.rest.token.storage.gorm.usernamePropertyName = 'username'
+grails.plugin.springsecurity.rest.token.validation.useBearerToken = false

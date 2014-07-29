@@ -52,11 +52,11 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.54"
 
         // plugins for the compile step
-        compile ":asset-pipeline:1.9.0"
+        compile ":asset-pipeline:1.9.4"
         compile ':cache:1.1.7'
         compile ":scaffolding:2.0.3"
         compile ":spring-security-core:2.0-RC3"
-        compile ":spring-security-rest:1.4.0.RC3", {
+        compile ":spring-security-rest:1.4.0.RC5", {
             excludes: 'spring-security-core'
         }
 
