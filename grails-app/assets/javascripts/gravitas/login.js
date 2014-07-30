@@ -15,9 +15,8 @@ login.controller('loginController',
                     $rootScope.currentUser = data.username;
                     setLocalToken(data.token);
                     authService.loginConfirmed({}, function(config) {
-                        var localToken = getLocalToken();
-                        if( !config.headers["X-Auth-Token"] || (config.headers["X-Auth-Token"] != localToken) ) {
-                            console.log('X-Auth-Token not on original request or different; updating it');
+                        if(!config.headers["X-Auth-Token"]) {
+                            console.log('X-Auth-Token not on original request; adding it');
                             config.headers["X-Auth-Token"] = getLocalToken();
                         }
                         return config;

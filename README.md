@@ -4,6 +4,8 @@ gravitas
 ## Description
 This project is an AngularJS client, Grails REST server based event sign-up application.
 
+[![Build Status](https://drone.io/github.com/asoftwareguy/gravitas/status.png)](https://drone.io/github.com/asoftwareguy/gravitas/latest)
+
 ## To Do
 
 - Sign up/Register module
