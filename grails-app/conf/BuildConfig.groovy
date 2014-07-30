@@ -49,19 +49,19 @@ grails.project.dependency.resolution = {
 
     plugins {
         // plugins for the build system only
-        build ":tomcat:7.0.54"
+        build ":tomcat:7.0.50.1"
 
         // plugins for the compile step
-        compile ":asset-pipeline:1.9.4"
-        compile ':cache:1.1.7'
-        compile ":scaffolding:2.0.3"
-        compile ":spring-security-core:2.0-RC3"
-        compile ":spring-security-rest:1.4.0.RC5", {
+        compile ":asset-pipeline:1.6.1"
+        compile ':cache:1.1.1'
+        compile ":scaffolding:2.0.2"
+        compile ":spring-security-core:2.0-RC2"
+        compile ":spring-security-rest:1.3.0", {
             excludes: 'spring-security-core'
         }
 
         // plugins needed at runtime but not for compilation
-        runtime ":database-migration:1.4.0"
-        runtime ":hibernate:3.6.10.16"
+        runtime ":database-migration:1.3.8"
+        runtime ":hibernate:3.6.10.8" // or ":hibernate4:4.3.1.1"
     }
 }
