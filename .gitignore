@@ -7,6 +7,7 @@
 .git/
 .gradle/
 /build/
+/target/
 /gradle/
 /out/
 atlassian-ide-plugin.xml
