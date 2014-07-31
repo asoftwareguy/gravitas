@@ -15,15 +15,15 @@ gravitasApp.config(['$routeProvider',
                 controller: 'homeController'
             }).
             when('/myEvents', {
-                templateUrl: 'partials/event-list.html',
+                templateUrl: 'assets/partials/event-list.html',
                 controller: 'listEventsController'
             }).
             when('/myEvents/create', {
-                templateUrl: 'partials/event-form.html',
+                templateUrl: 'assets/partials/event-form.html',
                 controller: 'createEventController'
             }).
             when('/myEvents/:eventId', {
-                templateUrl: 'partials/event-form.html',
+                templateUrl: 'assets/partials/event-form.html',
                 controller: 'editEventController'
             }).
             otherwise({
