@@ -102,7 +102,11 @@ log4j = {
     appenders {
         console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     }
-    debug 'com.odobo.grails.plugin.springsecurity.rest'
+    debug  'com.odobo',
+           'grails.app.controllers.com.odobo',
+           'grails.app.services.com.odobo',
+           'org.pac4j',
+           'org.springframework.security'
 
     error 'org.codehaus.groovy.grails.web.servlet',        // controllers
             'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -131,6 +135,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
 ]
 
 grails.plugin.springsecurity.rememberMe.persistent = false
+
 grails.plugin.springsecurity.rest.login.useJsonCredentials = true
 grails.plugin.springsecurity.rest.login.failureStatusCode = 401
 grails.plugin.springsecurity.rest.token.storage.useGorm = true
