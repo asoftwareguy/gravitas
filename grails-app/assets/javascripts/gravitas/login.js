@@ -9,11 +9,11 @@ login.controller('loginController',
 
             $http.post('api/login', { username: $scope.authData.username, password: $scope.authData.password }, getAuthenticateHttpConfig).
                 success(function(data) {
-                    console.log('authentication token: ' + data.token);
+                    console.log('authentication token: ' + data.access_token);
                     console.log('authentication username: ' + data.username);
                     $rootScope.isAuthenticated = true;
                     $rootScope.currentUser = data.username;
-                    setLocalToken(data.token);
+                    setLocalToken(data.access_token);
                     authService.loginConfirmed({}, function(config) {
                         var localToken = getLocalToken();
                         if( !config.headers["X-Auth-Token"] || (config.headers["X-Auth-Token"] != localToken) ) {
