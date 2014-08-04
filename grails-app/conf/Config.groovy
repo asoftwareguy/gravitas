@@ -128,10 +128,17 @@ grails.plugin.springsecurity.authority.className = 'gravitas.auth.Role'
 grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
 grails.plugin.springsecurity.interceptUrlMap = [
         '/':                    ['permitAll'],
+        '/index':               ['permitAll'],
+        '/index.gsp':           ['permitAll'],
         '/assets/**':           ['permitAll'],
         '/partials/**':         ['permitAll'],
         '/api/**':              ['permitAll'],
         '/**':                  ['isFullyAuthenticated()']
+]
+grails.plugin.springsecurity.filterChain.chainMap = [
+        '/api/**': 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter', // Stateless chain
+        '/data/**': 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter', // Stateless chain
+        '/**': 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter,-restLogoutFilter,-restAuthenticationFilter'   // Traditional chain
 ]
 
 grails.plugin.springsecurity.rememberMe.persistent = false

@@ -9,14 +9,15 @@ login.controller('loginController',
 
             $http.post('api/login', { username: $scope.authData.username, password: $scope.authData.password }, getAuthenticateHttpConfig).
                 success(function(data) {
-                    console.log('authentication token: ' + data.token);
+                    console.log('authentication token: ' + data.access_token);
                     console.log('authentication username: ' + data.username);
                     $rootScope.isAuthenticated = true;
                     $rootScope.currentUser = data.username;
-                    setLocalToken(data.token);
+                    setLocalToken(data.access_token);
                     authService.loginConfirmed({}, function(config) {
-                        if(!config.headers["X-Auth-Token"]) {
-                            console.log('X-Auth-Token not on original request; adding it');
+                        var localToken = getLocalToken();
+                        if( !config.headers["X-Auth-Token"] || (config.headers["X-Auth-Token"] != localToken) ) {
+                            console.log('X-Auth-Token not on original request or different; updating it');
                             config.headers["X-Auth-Token"] = getLocalToken();
                         }
                         return config;
