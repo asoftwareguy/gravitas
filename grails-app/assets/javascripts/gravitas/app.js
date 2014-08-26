@@ -11,7 +11,7 @@ gravitasApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/home', {
-                templateUrl: 'partials/home.html',
+                templateUrl: 'assets/partials/home.html',
                 controller: 'homeController'
             }).
             when('/myEvents', {
