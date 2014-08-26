@@ -4,16 +4,40 @@ import gravitas.auth.UserRole
 
 class BootStrap {
 
+    private static final String USER_ROLE = 'ROLE_USER'
+    private static final String USER_USERNAME = 'test@test.com'
+
     def init = { servletContext ->
 
-        User user = new User(username: "test@test.com", password: "test123")
-        user.save()
+        Role role;
+        User user;
 
-        Role roleUser = new Role(authority: "ROLE_USER")
-        roleUser.save()
+        if (Role.countByAuthority(USER_ROLE) == 0) {
+            log.info("creating new role: $USER_ROLE")
+            role = new Role(authority: USER_ROLE)
+            role.save()
+        } else {
+            log.info("role already exists: $USER_ROLE")
+            role = Role.findByAuthority(USER_ROLE)
+        }
 
-        new UserRole(user: user, role: roleUser).save()
+        if (User.countByUsername(USER_USERNAME) == 0) {
+            log.info("creating new user: $USER_USERNAME")
+            user = new User(username: USER_USERNAME, password: "test123")
+            user.save()
+        } else {
+            log.info("user already exists: $USER_USERNAME")
+            user = User.findByUsername(USER_USERNAME)
+        }
+
+        if (role.version == 0 || user.version == 0) {
+            log.info("creating new user/role association: $USER_USERNAME, $USER_ROLE")
+            new UserRole(user: user, role: role).save()
+        } else {
+            log.info("user/role association already exists: $USER_USERNAME, $USER_ROLE")
+        }
     }
+
     def destroy = {
     }
 }
