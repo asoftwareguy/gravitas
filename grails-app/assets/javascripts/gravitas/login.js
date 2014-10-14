@@ -27,6 +27,10 @@ login.controller('loginController',
                     console.log('login error: ' + data);
                     $rootScope.$broadcast('event:auth-loginFailed', data);
                 });
+
+            $scope.loginForm.$setPristine();
+            $scope.authData.username = "";
+            $scope.authData.password = "";
         }
     }
 );
