@@ -117,9 +117,9 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/**':                  ['isFullyAuthenticated()']
 ]
 grails.plugin.springsecurity.filterChain.chainMap = [
-        '/api/**': 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter', // Stateless chain
-        '/data/**': 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter', // Stateless chain
-        '/**': 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter,-restLogoutFilter,-restAuthenticationFilter'   // Traditional chain
+        '/api/**': 'JOINED_FILTERS,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter', // Stateless chain
+        '/data/**': 'JOINED_FILTERS,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter', // Stateless chain
+        '/**': 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter'   // Traditional chain
 ]
 
 grails.plugin.springsecurity.rememberMe.persistent = false
@@ -129,4 +129,6 @@ grails.plugin.springsecurity.rest.token.storage.useGorm = true
 grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName = 'gravitas.auth.AuthenticationToken'
 grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName = 'token'
 grails.plugin.springsecurity.rest.token.storage.gorm.usernamePropertyName = 'username'
+
+grails.plugin.springsecurity.rest.token.validation.headerName = 'X-Auth-Token'
 grails.plugin.springsecurity.rest.token.validation.useBearerToken = false
