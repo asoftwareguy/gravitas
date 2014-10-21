@@ -1,7 +1,7 @@
 var login = angular.module('login', []);
 
 login.controller('loginController',
-    function ($rootScope, $scope, $http, authService) {
+    function ($rootScope, $scope, $http, authService, $cookieStore) {
         console.log('loginController called');
 
         $scope.logIn = function() {
@@ -11,8 +11,9 @@ login.controller('loginController',
                 success(function(data) {
                     console.log('authentication token: ' + data.access_token);
                     console.log('authentication username: ' + data.username);
-                    $rootScope.isAuthenticated = true;
-                    $rootScope.currentUser = data.username;
+                    $cookieStore.put("loggedIn", "true");
+                    $cookieStore.put("currentUser", data.username);
+                    $scope.$emit('updateHeader');
                     setLocalToken(data.access_token);
                     authService.loginConfirmed({}, function(config) {
                         var localToken = getLocalToken();
@@ -39,7 +40,7 @@ login.controller('loginController',
 );
 
 login.controller('logoutController',
-    function ($rootScope, $scope, $http, $location) {
+    function ($rootScope, $scope, $http, $location, $cookieStore) {
         console.log('logoutController called');
 
         $scope.logOut = function() {
@@ -48,8 +49,9 @@ login.controller('logoutController',
             $http.post('api/logout', {}, getHttpConfig()).
                 success(function() {
                     console.log('logout success');
-                    $rootScope.isAuthenticated = false;
-                    $rootScope.currentUser = null;
+                    $cookieStore.put("loggedIn", null);
+                    $cookieStore.put("currentUser", null);
+                    $scope.$emit('updateHeader');
                     sessionStorage.clear();
                     $location.path("/")
                 }).

@@ -4,10 +4,12 @@
 //= require angular-http-auth/src/http-auth-interceptor
 //= require angular-bootstrap/ui-bootstrap
 //= require angular-bootstrap/ui-bootstrap-tpls
+//= require angular-cookies/angular-cookies
 //= require gravitas/app
 //= require gravitas/home
 //= require gravitas/login
 //= require gravitas/events
+//= require gravitas/header
 //= require_tree views
 //= require_self
 console.log("gravitas manifest load complete.");
