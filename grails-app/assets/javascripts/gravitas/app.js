@@ -1,10 +1,12 @@
 var gravitasApp = angular.module('gravitasApp', [
     'http-auth-interceptor',
     'ngRoute',
+    'ngCookies',
     'ui.bootstrap',
     'home',
     'login',
-    'events'
+    'events',
+    'header'
 ]);
 
 gravitasApp.config(['$routeProvider',
