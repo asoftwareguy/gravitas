@@ -13,51 +13,62 @@
     <asset:link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <asset:stylesheet href="font-awesome/css/font-awesome.css"/>
     <asset:stylesheet href="bootstrap-css/css/bootstrap.css"/>
+    <asset:stylesheet href="gravitas.css"/>
     <asset:javascript src="application.js"/>
     <g:layoutHead/>
 </head>
 
 <body class="show-login" ng-controller="headerController">
-    <div class="page-header container">
-        <div class="row">
-            <div class="span6">
-                Welcome to Gravitas - the Grails-based Sign-Up Application
+    <div id="wrap">
+        <div class="page-header container">
+            <div class="row">
+                <div class="span6">
+                    Welcome to Gravitas - the Grails-based Sign-Up Application
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="login-holder" class="container" style="width: 300px;">
-        <div id="login-error" class="alert alert-error">
-            <button type="button" class="close" onclick="$('#login-error').hide();">&times;</button>
-            Email address and/or password incorrect.
-        </div>
-
-        <div id="loginbox">
-            <div id="login-inner" ng-controller="loginController">
-                <form name="loginForm" role="form" ng-submit="logIn()" autocomplete="off">
-                    <div class="form-group">
-                        <label for="username">Email Address</label>
-                        <input id="username" class="form-control" type="text" ng-model="authData.username"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input id="password" class="form-control" type="password" ng-model="authData.password"/>
-                    </div>
-                    <input type="submit" class="btn btn-primary" value="Login"/>
-                </form>
+        <div id="login-holder" class="container" style="width: 300px;">
+            <div id="login-error" class="alert alert-error">
+                <button type="button" class="close" onclick="$('#login-error').hide();">&times;</button>
+                Email address and/or password incorrect.
             </div>
 
-            <div class="clear"></div>
-        </div>
-    </div>
+            <div id="loginbox">
+                <div id="login-inner" ng-controller="loginController">
+                    <form name="loginForm" role="form" ng-submit="logIn()" autocomplete="off">
+                        <div class="form-group">
+                            <label for="username">Email Address</label>
+                            <input id="username" class="form-control" type="text" ng-model="authData.username"/>
+                        </div>
 
-    <div id="content" class="container">
-        <div class="span6" style="text-align: right;" ng-show="isAuthenticated">
-            Welcome, {{currentUser}}.
-            <a href="" ng-controller="logoutController" ng-click="logOut()">(Log out)</a>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input id="password" class="form-control" type="password" ng-model="authData.password"/>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Login"/>
+                    </form>
+                </div>
+
+                <div class="clear"></div>
+            </div>
         </div>
-        <g:layoutBody/>
+
+        <div id="content" class="container">
+            <div class="span6" style="text-align: right;" ng-show="isAuthenticated">
+                Welcome, {{currentUser}}.
+                <a href="" ng-controller="logoutController" ng-click="logOut()">(Log out)</a>
+            </div>
+            <g:layoutBody/>
+        </div>
+
+        <div class="footer panel-footer">
+            <div class="container">
+                <p class="muted credit">
+                    Version: <g:meta name="app.version"/>
+                </p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
