@@ -1,6 +1,8 @@
+import gravitas.Event
 import gravitas.auth.Role
 import gravitas.auth.User
 import gravitas.auth.UserRole
+import org.apache.commons.lang.RandomStringUtils
 
 class BootStrap {
 
@@ -36,6 +38,15 @@ class BootStrap {
         } else {
             log.info("user/role association already exists: $USER_USERNAME, $USER_ROLE")
         }
+        /*
+        for (int i = 0; i < 20; i++) {
+            new Event(
+                    name: RandomStringUtils.randomAlphabetic(50),
+                    description: RandomStringUtils.randomAlphabetic(50),
+                    date: new Date()
+            ).save(flush: true)
+        }
+        */
     }
 
     def destroy = {
