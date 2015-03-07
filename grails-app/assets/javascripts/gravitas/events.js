@@ -16,7 +16,7 @@ var loadEvent = function($scope, $http, $routeParams) {
 var loadEvents = function($scope, $http) {
     console.log('loadEvents called');
 
-    $http.get('/gravitas/data/events/', getHttpConfig()).
+    $http.get('/gravitas/data/events?max=99999', getHttpConfig()).
         success(function (data) {
             console.log('loadEvents success: ' + data);
             $scope.events = data;
