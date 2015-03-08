@@ -6,7 +6,8 @@ var gravitasApp = angular.module('gravitasApp', [
     'home',
     'login',
     'events',
-    'header'
+    'header',
+    'angularUtils.directives.dirPagination'
 ]);
 
 gravitasApp.config(['$routeProvider',

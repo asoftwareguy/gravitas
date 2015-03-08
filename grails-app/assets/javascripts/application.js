@@ -5,6 +5,7 @@
 //= require angular-bootstrap/ui-bootstrap
 //= require angular-bootstrap/ui-bootstrap-tpls
 //= require angular-cookies/angular-cookies
+//= require angular-utils-pagination/dirPagination
 //= require gravitas/app
 //= require gravitas/home
 //= require gravitas/login
