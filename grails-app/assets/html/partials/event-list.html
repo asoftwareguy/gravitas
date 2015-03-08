@@ -1,5 +1,5 @@
 <h2>All Events</h2>
-
+<dir-pagination-controls template-url="assets/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
 <div id="showEvents" ng-show="events.length">
     <table class="table table-striped table-bordered table-hover">
         <thead>
@@ -11,7 +11,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr data-ng-repeat="event in events">
+        <tr dir-paginate="event in events | itemsPerPage: 10">
             <td>{{event.name}}</td>
             <td>{{event.description}}</td>
             <td>{{event.date | date:'fullDate'}}</td>
